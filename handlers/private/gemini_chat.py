@@ -131,8 +131,6 @@ async def chat_with_gemini(message: Message, state: FSMContext):
     try:
         await bot.send_chat_action(chat_id=user_id, action="typing")
 
-        await state.set_state(GeminiAnswering.answering)
-
         # Strukturalangan prompt
         structured_prompt = (
             "Respond in plain text format without using markdown or special formatting. "
@@ -144,6 +142,8 @@ async def chat_with_gemini(message: Message, state: FSMContext):
         # Gemini chat ni boshlash
         chat = model.start_chat()
         response = chat.send_message(structured_prompt)
+
+        await state.set_state(GeminiAnswering.answering)
 
         # Javobni tozalash va formatlash
         bot_response = response.text.strip()
