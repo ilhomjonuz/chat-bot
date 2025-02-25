@@ -6,9 +6,10 @@ async def menu_keyboard(lang: str = 'uz') -> ReplyKeyboardMarkup:
     builder = ReplyKeyboardBuilder()
 
     builder.add(
-        KeyboardButton(text="🧠 OpenAI"),
-        KeyboardButton(text="🔮 Gemini"),
+        KeyboardButton(text="🧠 ChatGPT (OpenAI)"),
+        KeyboardButton(text="🔮 Gemini (Google)"),
+        KeyboardButton(text="🚀 DeepSeek AI"),
     )
-    builder.adjust(2)
+    builder.adjust(2, 1)
 
     return builder.as_markup(resize_keyboard=True, one_time_keyboard=True)

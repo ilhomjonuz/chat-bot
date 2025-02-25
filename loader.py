@@ -12,3 +12,4 @@ dp = Dispatcher(storage=storage)
 
 openai_data_manager = JSONDataManager()
 gemini_data_manager = JSONDataManager(file_path='data/chat_story/gemini_data.json')
+deepseek_data_manager = JSONDataManager(file_path='data/chat_story/deepseek_data.json')

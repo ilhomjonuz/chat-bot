@@ -13,7 +13,7 @@ from states import ChatStates, OpenAIAnswering
 logger = logging.getLogger(__name__)
 
 
-@dp.message(F.text == '🧠 OpenAI')
+@dp.message(F.text == '🧠 ChatGPT (OpenAI)')
 async def openai_chat_start(message: types.Message, state: FSMContext):
     user_id = str(message.from_user.id)
     openai_data_manager.clear_history(user_id)

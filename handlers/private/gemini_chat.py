@@ -9,9 +9,8 @@ import logging
 from datetime import datetime
 
 from data import config
-from loader import dp, bot
+from loader import dp, bot, gemini_data_manager
 from states import ChatStates, GeminiAnswering
-from utils.json_manager import JSONDataManager
 
 # Logging sozlash
 logger = logging.getLogger(__name__)
@@ -20,11 +19,8 @@ logger = logging.getLogger(__name__)
 ai.configure(api_key=config.GEMINI_API_KEY)
 model = ai.GenerativeModel(config.GEMINI_MODEL)
 
-# JSON manager yaratish
-gemini_data_manager = JSONDataManager(file_path='data/chat_story/gemini_data.json')
 
-
-@dp.message(F.text == '🔮 Gemini')
+@dp.message(F.text == '🔮 Gemini (Google)')
 async def gemini_chat_start(message: Message, state: FSMContext):
     user_id = str(message.from_user.id)
 

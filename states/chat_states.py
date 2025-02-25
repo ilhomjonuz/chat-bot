@@ -4,6 +4,7 @@ from aiogram.fsm.state import StatesGroup, State
 class ChatStates(StatesGroup):
     openai = State()
     gemini = State()
+    deepseek = State()
 
 
 class OpenAIAnswering(StatesGroup):
@@ -11,4 +12,8 @@ class OpenAIAnswering(StatesGroup):
 
 
 class GeminiAnswering(StatesGroup):
+    answering = State()
+
+
+class DeepSeekAnswering(StatesGroup):
     answering = State()
